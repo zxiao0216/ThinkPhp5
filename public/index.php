@@ -13,5 +13,7 @@
 
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
+//更改log日志的存放位置，在根目录下生成一个log文件夹
+define('LOG_PATH', __DIR__ . '/../log/');
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';
