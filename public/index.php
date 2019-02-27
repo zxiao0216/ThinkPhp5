@@ -17,3 +17,10 @@ define('APP_PATH', __DIR__ . '/../application/');
 define('LOG_PATH', __DIR__ . '/../log/');
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';
+
+//初始化开启sql日志 开发模式开启，生产模式尽量不要开启
+\think\Log::init([
+    'type' => 'File',
+    'path' => LOG_PATH,
+    'level' => ['aql']
+]);
