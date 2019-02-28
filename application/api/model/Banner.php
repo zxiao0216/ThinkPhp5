@@ -11,9 +11,12 @@ namespace app\api\model;
 
 use think\Db;
 use think\Exception;
+use think\Model;
 
-class Banner
+class Banner extends Model
 {
+//    protected $table = 'category';  //选择数据库中的category表
+
     public static function getBannerByID($id)
     {
 //        原生sql的方式
@@ -35,6 +38,8 @@ class Banner
                 $query->where('banner_id','=',$id);
             })
             ->select();
+//        ORM Object Relation Mapping 对象关系映射
+
         return $result;
 
     }

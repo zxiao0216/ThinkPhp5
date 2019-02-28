@@ -24,11 +24,19 @@ class Banner
     public function getBanner($id){
 //        AOP 面向切面编程
         (new IDMustBePositiveInt())->goCheck();
-        $banner = BannerModel::getBannerByID($id);
+
+        //模型查询静态方式 建议使用这种方式
+        $banner = BannerModel::find($id);
+
+        //下边的方式是通过实例化的方式来定义模型
+//        $banner = new BannerModel();
+//        $banner = $banner->get($id);
+
+//        $banner = BannerModel::getBannerByID($id);
         if(!$banner){
             throw new BannerMissException();
 //            throw new Exception('内部错误');
         }
-        return json($banner,200);
+        return json($banner);
     }
 }
